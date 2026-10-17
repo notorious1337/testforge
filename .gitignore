@@ -1,0 +1,16 @@
+.venv/
+.venv-py313/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+playwright-report/
+test-results/
+artifacts/*
+!artifacts/.gitkeep
+reports/
+*.jtl
+*.log
+.env
+.DS_Store
+.idea/
+.vscode/
