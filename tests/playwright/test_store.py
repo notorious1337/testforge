@@ -44,7 +44,7 @@ def test_cart_and_checkout(page: Page) -> None:
     page.locator("[data-test='add-to-cart-sauce-labs-backpack']").click()
 
     expect(page.locator(".shopping_cart_badge")).to_have_text("1")
-    page.locator(".shopping_cart_link").click()
+    page.locator("[data-test='shopping-cart-link']").click()
     assert page.url.endswith("/cart.html")
 
     expect(page.locator(".cart_item")).to_have_count(1)

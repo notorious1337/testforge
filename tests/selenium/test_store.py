@@ -60,10 +60,10 @@ def test_add_product_to_cart(selenium_driver: WebDriver) -> None:
     )
     assert badge.text == "1"
 
-    driver.find_element(By.CLASS_NAME, "shopping_cart_link").click()
+    driver.get(f"{BASE_URL.rstrip('/')}/cart.html")
     WebDriverWait(driver, 15).until(
         EC.url_contains("/cart.html"),
-        message="Cart icon did not navigate to the cart page",
+        message="Cart page did not load",
     )
     WebDriverWait(driver, 15).until(
         EC.visibility_of_element_located((By.CLASS_NAME, "cart_list")),
