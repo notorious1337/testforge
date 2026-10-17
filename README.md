@@ -50,7 +50,7 @@ The browser demo and performance target are intentionally separate: the JMeter p
 
 The [GitHub Actions workflow](.github/workflows/tests.yml) installs Python 3.11 and Playwright Chromium, runs pytest, and uploads reports even when tests fail.
 
-- **GitHub Actions, Python 3.11.17:** the initial workflow run passed all 6 browser tests in 13.49 seconds. [View run](https://github.com/notorious1337/testforge/actions/runs/39047189552).
+- **GitHub Actions, Python 3.11.17:** the expanded workflow passed all 11 browser, API, and MCP-guardrail tests in 18.41 seconds. [View run](https://github.com/notorious1337/testforge/actions/runs/39047910648).
 - **Local Windows run, Python 3.13.14:** all 6 browser tests passed; JUnit XML and a self-contained HTML report were generated.
 - **Expanded local suite:** all 11 browser, API, and MCP-guardrail tests passed; JUnit XML and a self-contained HTML report were regenerated.
 - **MCP stdio integration:** a client discovered the three tools, ran the Playwright suite (3 passed), and retrieved the saved summary.
