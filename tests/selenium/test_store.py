@@ -48,21 +48,24 @@ def test_invalid_login_shows_error(selenium_driver: WebDriver) -> None:
 def test_add_product_to_cart(selenium_driver: WebDriver) -> None:
     driver = selenium_driver
     login(driver)
-    driver.find_element(
-        By.CSS_SELECTOR, "[data-test='add-to-cart-sauce-labs-backpack']"
+    add_to_cart = (By.CSS_SELECTOR, "[data-test='add-to-cart-sauce-labs-backpack']")
+    WebDriverWait(driver, 15).until(
+        EC.element_to_be_clickable(add_to_cart),
+        message="Backpack add-to-cart button did not become clickable",
     ).click()
 
-    badge = WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located((By.CLASS_NAME, "shopping_cart_badge"))
+    badge = WebDriverWait(driver, 15).until(
+        EC.visibility_of_element_located((By.CLASS_NAME, "shopping_cart_badge")),
+        message="Cart badge did not appear after adding the backpack",
     )
     assert badge.text == "1"
 
     driver.find_element(By.CLASS_NAME, "shopping_cart_link").click()
-    WebDriverWait(driver, 10).until(
+    WebDriverWait(driver, 15).until(
         EC.url_contains("/cart.html"),
         message="Cart icon did not navigate to the cart page",
     )
-    WebDriverWait(driver, 10).until(
+    WebDriverWait(driver, 15).until(
         EC.visibility_of_element_located((By.CLASS_NAME, "cart_list")),
         message="Cart contents did not become visible",
     )
